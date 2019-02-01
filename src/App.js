@@ -24,13 +24,62 @@ const HeroBanner = ({ image, min, max, children }) => (
   </div>
 );
 
+var Header = {
+  top: "100px"
+};
+const ParallaxHeader = () => (
+  <Parallax
+    offsetXMin={0}
+    offsetXMax={110}
+    offsetYMin={0}
+    offsetYMax={110}
+    slowerScrollRate
+    tag="header"
+  >
+    <h1>Handmade in Norrbotten</h1>
+  </Parallax>
+);
+const ParallaxSpan = () => (
+  <Parallax
+    offsetXMin={90}
+    offsetXMax={-10}
+    offsetYMin={-950}
+    offsetYMax={800}
+    slowerScrollRate
+    tag="header"
+  >
+    <div className="spncont">
+      {" "}
+      <span className="spn" /> <span className="spn" />{" "}
+    </div>
+  </Parallax>
+);
+
+const ParallaxText = () => (
+  <Parallax
+    offsetXMin={90}
+    offsetXMax={-10}
+    offsetYMin={-950}
+    offsetYMax={800}
+    slowerScrollRate
+    tag="header"
+  >
+    <div className="spncont">
+      {" "}
+      <span className="spn" /> <span className="spn" />{" "}
+    </div>
+  </Parallax>
+);
+
 class App extends Component {
   render() {
     return (
       <ParallaxProvider>
         <HeroBanner min={"-30%"} max={"30%"} image={start}>
-          <h1>Hero Banner with Parallax</h1>
+          {/* <h1>Handmade in Norrbotten</h1> */}
+          <ParallaxHeader />
         </HeroBanner>
+        <ParallaxSpan />
       </ParallaxProvider>
     );
   }

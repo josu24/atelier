@@ -1,3 +1,5 @@
+@import url("https://use.typekit.net/njp6yfr.css");
+
 html {
   font-size: 16px;
 }
@@ -5,10 +7,11 @@ html {
 body {
   position: relative;
   background: #5c6bc0;
-  min-height: 200vh;
+  min-height: 400vh;
   color: white;
-  font-family: "Futura", "Helvetica", sans-serif;
-  font-weight: normal;
+  font-family: "rift-soft", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
 }
 
 .hero-container {
@@ -33,11 +36,28 @@ body {
   right: 0;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 h1 {
   font-weight: normal;
   font-size: 6vw;
+  margin-top: 10%;
+}
+.spn {
+  width: 100%;
+  content: "";
+  left: 0;
+  display: flex;
+  background: white;
+  height: 4px;
+}
+.spncont {
+  width: 50%;
+  content: "";
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  height: 500px;
 }
