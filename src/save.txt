@@ -1,0 +1,181 @@
+import React, { Component } from "react";
+import {
+  ParallaxProvider,
+  Parallax,
+  ParallaxBanner
+} from "react-scroll-parallax";
+import { jsx, css, keyframes } from "@emotion/core";
+import styled from "@emotion/styled";
+import logo from "./logo.svg";
+import start from "./start.jpg";
+import scratch from "./scratch.jpg";
+import "./App.css";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+`;
+
+const All = styled("div")`
+  height: 3000px;
+  width: 100%;
+`;
+
+const Background = styled.img`
+  z-index: -10;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  max-height: auto;
+  top: 0;
+  left: 0;
+  animation: ${fadeIn};
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+`;
+
+const bg = {
+  minHeight: "100%",
+  minWidth: "1024px",
+  width: "100%",
+  maxHeight: "auto",
+  position: "absolute",
+  top: "0",
+  left: "0"
+};
+
+var HeaderMade = {
+  fontSize: "2.5em",
+  left: "0"
+};
+
+const container = css`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+`;
+const bgimage = css`
+  width: 100vw;
+  height: 150vh; // this should be dynamic, right now it's fixed based on a min max offset
+  background-size: cover;
+  background-position: center;
+`;
+
+const ParallaxHeader = () => (
+  <Parallax
+    offsetXMin={60}
+    offsetXMax={-60}
+    offsetYMin={-1000}
+    offsetYMax={1000}
+    slowerScrollRate
+    tag="header"
+    styleInner={HeaderMade}
+  >
+    <div>HAND</div>
+  </Parallax>
+);
+const ParallaxBackground = () => (
+  <Parallax
+    className={bgimage}
+    offsetYMax={20}
+    offsetYMin={-20}
+    slowerScrollRate
+    styleInner={{ backgroundImage: `url(${start})` }}
+  />
+);
+
+const ParallaxBackgroundBanner = () => (
+  <ParallaxBanner
+    disabled={false}
+    layers={[
+      {
+        image: start,
+        amount: 0.5,
+        slowerScrollRate: true,
+        expanded: true
+      }
+    ]}
+    style={{
+      top: "10%",
+      height: "500px",
+      width: "100%"
+    }}
+  >
+    <h1>Banner Children</h1>
+  </ParallaxBanner>
+);
+const ParallaxImage = () => (
+  <Parallax
+    offsetYMax={50}
+    offsetYMin={0}
+    offsetXMax={0}
+    tag="header"
+    slowerScrollRate
+    styleInner={bg}
+  >
+    <Background src={scratch} />
+  </Parallax>
+);
+
+class App extends Component {
+  render() {
+    return (
+      <ParallaxProvider>
+        <All>
+          <div className={container}>
+            <ParallaxBackground />
+          </div>
+          {/* <ParallaxHeader /> */}
+          {/* <ParallaxBackgroundBanner /> */}
+          {/* <ParallaxImage /> */}
+        </All>
+      </ParallaxProvider>
+    );
+  }
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url("https://use.typekit.net/njp6yfr.css");
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+  user-select: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  font-family: "rift-soft", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+/* .parallax-inner {
+  text-align: center;
+} */
